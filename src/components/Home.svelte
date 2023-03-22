@@ -5,7 +5,7 @@
 			<h1>Hi! My name is <span class="sp">Dan</span></h1>
 			<em>Web Developer</em>
 		</div>
-		<p class="description gradient-b">Developing Full-Stack Application, Designing Products with <u><span class="sp gradient-o">Minimalism Approach</span></u></p>
+		<p class="description gradient-b">Developing Full-Stack Application, Designing Products with <u><span class="sp sp-b gradient-o">Minimalism Approach</span></u></p>
 		<a
 		class="linkedIn"
 		href="https://www.linkedin.com/in/dan-victor-lofranco-a5199220b/">
@@ -38,12 +38,15 @@
 	}
 	img[alt="myPicture"] {
 		border-radius:100%;
-		height: 200px;
-		width: auto;
+		height: 100%;
+		max-height:200px;
 		margin-bottom:12px;
 	}
 	.sp {
 		color:var(--orange-m);
+	}
+	.sp-b {
+		display:block;
 	}
 	.gradient-b {
 		background: -webkit-linear-gradient(white,lightgray, #333);
@@ -83,7 +86,7 @@
 	}
 	@media (max-width:600px) {
 		.description {
-			font-size:2rem;
+			font-size:1.8rem;
 		}
 	}
 </style>
