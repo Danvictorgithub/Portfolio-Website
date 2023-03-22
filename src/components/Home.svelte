@@ -6,8 +6,10 @@
 			<em>Web Developer</em>
 		</div>
 		<p class="description gradient-b">Developing Full-Stack Application, Designing Products with <u><span class="sp gradient-o">Minimalism Approach</span></u></p>
-		<a class="linkedIn" href="https://www.linkedin.com/in/dan-victor-lofranco-a5199220b/">
-			LinkedIn ><img src="./link-box.svg" alt="linkIco">
+		<a
+		class="linkedIn"
+		href="https://www.linkedin.com/in/dan-victor-lofranco-a5199220b/">
+			<p>LinkedIn</p> <img src="./link-box.svg" alt="linkIco">
 		</a>
 	</section>
 	<section></section>
@@ -59,12 +61,25 @@
 		max-width:900px;
 	}
 	.linkedIn {
+		border-radius: 12px 12px;
 		margin: 24px;
-		list-style-type: none;
+		padding: 10px 80px;
+		text-decoration:none;
 		color:white;
 		width:100px;
 		display:flex;
+		justify-content:center;
+		align-items:center;
 		background-color:#353535;
+		font-style:italic;
+	}
+	.linkedIn p {
+		margin-left:5px;
+	}
+	.linkedIn img {
+		height: 40px;
+		margin-left:12px;
+		filter:invert(100%);
 	}
 	@media (max-width:600px) {
 		.description {
