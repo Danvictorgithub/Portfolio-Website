@@ -11,7 +11,8 @@
   font-family: "Ubuntu", sans-serif;
 }
 html, body, main{
-  height:100svh;
+  min-height:100svh;
+  position:relative;
 }
 main {
   display: flex;
