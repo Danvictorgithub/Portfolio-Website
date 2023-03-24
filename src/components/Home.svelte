@@ -27,6 +27,51 @@
 			</div>
 		</div>
 	</section>
+	<section>
+		<header class="fe-tech"><h3>Front-End Technologies</h3></header>
+		<div class="group-fe">
+			<div class="fe-desc">
+				<img src="./React-icon.png" class="fe-logo" alt="">
+				<p>React</p>
+			</div>
+			<div class="fe-desc">
+				<img src="./Vue.png" class="fe-logo" alt="">
+				<p>Vue</p>
+			</div>
+			<div class="fe-desc">
+				<img src="./Svelte_Logo.png" class="fe-logo" alt="svelteLogo">
+				<p>Svelte</p>
+			</div>
+		</div>
+	</section>
+	<section>
+		<header class="be-tech"><h3>Back-End Technologies</h3></header>
+		<div class="group-be">
+			<div class="be-desc">
+				<img src="./mongodb.png" alt="MongoDB" class="be-logo">
+				<p>MongoDB</p>
+			</div>
+			<div class="be-desc">
+				<img src="./nodejs.png" alt="NodeJS" class="be-logo">
+				<p>NodeJS</p>
+			</div>
+			<div class="be-desc">
+				<img src="./express.png" alt="ExpressJS" class="be-logo">
+				<p>Express</p>
+			</div>
+			<div class="be-desc">
+				<img src="./postgresql.png" alt="PostgreSQL" class="be-logo">
+				<p>PostgreSQL</p>
+			</div>
+
+		</div>
+	</section>
+	<section>
+		<header class="projects"><h3>Personal Projects</h3></header>
+		<section class="projects-container">
+			
+		</section>
+	</section>
 </article>
 
 <style>
@@ -103,7 +148,7 @@
 		width:100%;
 		color:white;
 	}
-	.experience-h {
+	.experience-h,.fe-tech,.be-tech,.projects {
 		background-color: #202020;
 		height: 60px;
 		display:flex;
@@ -172,6 +217,27 @@
 	}
 	div.alt-event::after { top: 20%; left: 109.8%; }
 	div.alt-event.right::after { top: 20%; left: auto; right: 108.1%; }
+	.group-fe,.group-be {
+		padding: 24px;
+		gap:64px;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+	}
+	.fe-logo,.be-logo{
+		height: 75px;
+		width: auto;
+	}
+	.fe-desc, .be-desc {
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+		gap: 12px;
+	}
+	.fe-desc p, .be-desc p{
+		font-weight: 600;
+	}
 	@media (max-width:600px) {
 		.description {
 			font-size:1.8rem;
