@@ -63,13 +63,35 @@
 				<img src="./postgresql.png" alt="PostgreSQL" class="be-logo">
 				<p>PostgreSQL</p>
 			</div>
-
 		</div>
 	</section>
 	<section>
 		<header class="projects"><h3>Personal Projects</h3></header>
 		<section class="projects-container">
-			
+			<div class="card">
+				<img src="./sampleBlogImage.png" alt="sampleImage">
+				<p class="project-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis minima natus, facilis, sed eius expedita velit maiores incidunt reiciendis sit non nam laudantium maxime hic odio! Eaque ad laborum quae!</p>
+			</div>
+			<div class="card">
+				<img src="./sampleBlogImage.png" alt="sampleImage">
+				<p class="project-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis minima natus, facilis, sed eius expedita velit maiores incidunt reiciendis sit non nam laudantium maxime hic odio! Eaque ad laborum quae!</p>
+			</div>
+			<div class="card">
+				<img src="./sampleBlogImage.png" alt="sampleImage">
+				<p class="project-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis minima natus, facilis, sed eius expedita velit maiores incidunt reiciendis sit non nam laudantium maxime hic odio! Eaque ad laborum quae!</p>
+			</div>
+			<div class="card">
+				<img src="./sampleBlogImage.png" alt="sampleImage">
+				<p class="project-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis minima natus, facilis, sed eius expedita velit maiores incidunt reiciendis sit non nam laudantium maxime hic odio! Eaque ad laborum quae!</p>
+			</div>
+			<div class="card">
+				<img src="./sampleBlogImage.png" alt="sampleImage">
+				<p class="project-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis minima natus, facilis, sed eius expedita velit maiores incidunt reiciendis sit non nam laudantium maxime hic odio! Eaque ad laborum quae!</p>
+			</div>
+			<div class="card">
+				<img src="./sampleBlogImage.png" alt="sampleImage">
+				<p class="project-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis minima natus, facilis, sed eius expedita velit maiores incidunt reiciendis sit non nam laudantium maxime hic odio! Eaque ad laborum quae!</p>
+			</div>
 		</section>
 	</section>
 </article>
@@ -223,6 +245,7 @@
 		display:flex;
 		justify-content:center;
 		align-items:center;
+		flex-wrap: wrap;
 	}
 	.fe-logo,.be-logo{
 		height: 75px;
@@ -237,6 +260,19 @@
 	}
 	.fe-desc p, .be-desc p{
 		font-weight: 600;
+	}
+	.projects-container {
+		padding: 24px;
+		display:grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 24px;
+	}
+	.card img {
+		position:relative;
+		object-fit:cover;
+		width: 100%;
+		height: 200px;
+		margin-bottom: 24px;
 	}
 	@media (max-width:600px) {
 		.description {
