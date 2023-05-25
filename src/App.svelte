@@ -1,18 +1,15 @@
 <script>
-  import Header from "./components/Header.svelte";
-  import Footer from "./components/Footer.svelte";
-  import Home from "./components/Home.svelte";
+  import Router from "svelte-spa-router";
+  import routes from "./routes/route.js";
   // Todo:
-  // Back-End/Database
+  // Back-End/Database  
   // Authentication
   // Add/Remove Projects or Experiences
   // Custom Display Project
 </script>
 
 <main>
-  <Header />
-  <Home />
-  <Footer />
+  <Router {routes}/>
 </main>
 
 <style>
