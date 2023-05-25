@@ -22,3 +22,11 @@ main {
 main > :nth-child(2) {
   flex: 1 0 auto;
 }
+.wrapper {
+  margin: 0 auto;
+  max-width: 1280px;
+}
+.container {
+  width:100%;
+  color:white;
+}

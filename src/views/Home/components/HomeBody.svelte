@@ -97,14 +97,6 @@
 </article>
 
 <style>
-	.wrapper {
-		margin: 0 auto;
-		max-width: 1280px;
-	}
-	.container {
-		width:100%;
-		color:white;
-	}
 	.hero {
 		padding:24px;
 		display:flex;
