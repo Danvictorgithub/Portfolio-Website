@@ -299,7 +299,7 @@
 	}
 	.project-github {
 		background-color:white;
-		background-image: url("github-logo.png");
+		background-image: url("/github-logo.png");
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size:125px;
