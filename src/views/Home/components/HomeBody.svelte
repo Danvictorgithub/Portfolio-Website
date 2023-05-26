@@ -1,20 +1,21 @@
 <script>
-	import {onMount} from 'svelte';	
+	import {onMount} from 'svelte';
+	let API_URL = import.meta.env.VITE_API_URL;
+	console.log(API_URL);	
 	let feTech = [];
 	let beTech = [];
 	let weExp = [];
 	onMount(async ()=> {
-		let res = await fetch('http://localhost:3000/api/feTech');
+		let res = await fetch(API_URL+'feTech');
 		feTech = await res.json();
 		feTech = feTech.FeTech;
-		let res2 = await fetch("http://localhost:3000/api/beTech");
+		let res2 = await fetch(API_URL+"beTech");
 		beTech = await res2.json();
 		beTech = beTech.BeTech;
 
-		let res3 = await fetch("http://localhost:3000/api/workExp");
+		let res3 = await fetch(API_URL+"workExp");
 		weExp = await res3.json();
 		weExp = weExp.WorkExp;
-
 		console.log(feTech,beTech,weExp);
 	});
 </script>
@@ -88,6 +89,18 @@
 		<section class="projects-container">
 			<div class="card">
 				<img src="./sampleBlogImage.png" alt="sampleImage">
+				<div class="tags">
+					<p class="tag">Tags</p>
+					<p class="tag">Tags</p>
+					<p class="tag">Tags</p>
+					<p class="tag">Tags</p>
+					<p class="tag">Tags</p>
+					<p class="tag">Tags</p>
+					<p class="tag">Tags</p>
+					<p class="tag">Tags</p>
+					<p class="tag">Tags</p>
+					<p class="tag">Tags</p>
+				</div>
 				<p class="project-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis minima natus, facilis, sed eius expedita velit maiores incidunt reiciendis sit non nam laudantium maxime hic odio! Eaque ad laborum quae!</p>
 			</div>
 			<div class="card">
@@ -291,5 +304,18 @@
 	}
 	.textCenter {
 		text-align:center;
+	}
+	.tags {
+		display:flex;
+		flex-wrap:wrap;
+		padding:0 10px;
+		gap: 2px 4px;
+		margin-bottom:4px;
+	}
+	.tag {
+		font-weight: bold;
+		border: 2px solid orangered;
+		border-radius: 2rem;
+		padding: 4px 12px;
 	}
 </style>
