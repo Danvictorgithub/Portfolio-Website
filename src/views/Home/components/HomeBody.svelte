@@ -2,14 +2,20 @@
 	import {onMount} from 'svelte';	
 	let feTech = [];
 	let beTech = [];
+	let weExp = [];
 	onMount(async ()=> {
 		let res = await fetch('http://localhost:3000/api/feTech');
 		feTech = await res.json();
 		feTech = feTech.FeTech;
-
 		let res2 = await fetch("http://localhost:3000/api/beTech");
 		beTech = await res2.json();
 		beTech = beTech.BeTech;
+
+		let res3 = await fetch("http://localhost:3000/api/workExp");
+		weExp = await res3.json();
+		weExp = weExp.WorkExp;
+
+		console.log(feTech,beTech,weExp);
 	});
 </script>
 <article class="container wrapper">
@@ -30,14 +36,19 @@
 		<header class="experience-h"><h3>Working Experience</h3></header>
 		<div class="timeline-container">
 			<div class="alt-vtl">
-			  <div class="alt-event">
-			    <p class="date">Github Contributor - 2022</p>
-			    <p class="txt">Worked with Students, creating a Budget Tracker Application. First exposure to Github Workflow</p>
-			  </div>
-			  <div class="alt-event right">
-			    <p class="date">Prifina Front-End Developer - 2022/2023</p>
-			    <p class="txt">Worked as React Developer creating Widget Application with their Data from oura Ring, fitbit, and other fitness apps. Used Jest and StoryBookJS for automated testing.</p>
-			  </div>
+				{#each weExp as exp, i}
+					{#if i%2 == 0}
+						<div class="alt-event">
+							<p class="date">{exp.positionName} {exp.companyName} - {exp.startDate}/{exp.endDate}</p>
+							<p class="txt">{exp.description}</p>
+						</div>
+					{:else}
+						<div class="alt-event right">
+							<p class="date">{exp.positionName} {exp.companyName} - {exp.startDate}/{exp.endDate}</p>
+							<p class="txt">{exp.description}</p>
+						</div>
+					{/if}
+				{/each}
 			</div>
 		</div>
 	</section>
