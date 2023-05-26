@@ -1,3 +1,17 @@
+<script>
+	import {onMount} from 'svelte';	
+	let feTech = [];
+	let beTech = [];
+	onMount(async ()=> {
+		let res = await fetch('http://localhost:3000/api/feTech');
+		feTech = await res.json();
+		feTech = feTech.FeTech;
+
+		let res2 = await fetch("http://localhost:3000/api/beTech");
+		beTech = await res2.json();
+		beTech = beTech.BeTech;
+	});
+</script>
 <article class="container wrapper">
 	<section class="hero">
 		<img src="./myProfile.jpg" alt="myPicture">
@@ -30,39 +44,23 @@
 	<section>
 		<header class="fe-tech"><h3>Front-End Technologies</h3></header>
 		<div class="group-fe">
+		{#each feTech as tech}
 			<div class="fe-desc">
-				<img src="./React-icon.png" class="fe-logo" alt="">
-				<p>React</p>
+				<img src={tech.imgLocation} class="fe-logo" alt={`${tech.name} logo`}/>
+				<p>{tech.name}</p>
 			</div>
-			<div class="fe-desc">
-				<img src="./Vue.png" class="fe-logo" alt="">
-				<p>Vue</p>
-			</div>
-			<div class="fe-desc">
-				<img src="./Svelte_Logo.png" class="fe-logo" alt="svelteLogo">
-				<p>Svelte</p>
-			</div>
+		{/each}
 		</div>
 	</section>
 	<section>
 		<header class="be-tech"><h3>Back-End Technologies</h3></header>
 		<div class="group-be">
-			<div class="be-desc">
-				<img src="./mongodb.png" alt="MongoDB" class="be-logo">
-				<p>MongoDB</p>
-			</div>
-			<div class="be-desc">
-				<img src="./nodejs.png" alt="NodeJS" class="be-logo">
-				<p>NodeJS</p>
-			</div>
-			<div class="be-desc">
-				<img src="./express.png" alt="ExpressJS" class="be-logo">
-				<p>Express</p>
-			</div>
-			<div class="be-desc">
-				<img src="./postgresql.png" alt="PostgreSQL" class="be-logo">
-				<p>PostgreSQL</p>
-			</div>
+			{#each beTech as tech}
+				<div class="be-desc">
+					<img src={tech.imgLocation} class="be-logo" alt={`${tech.name} logo`}/>
+					<p>{tech.name}</p>
+				</div>
+			{/each}
 		</div>
 	</section>
 	<section>
@@ -231,7 +229,7 @@
 	}
 	div.alt-event::after { top: 20%; left: 109.8%; }
 	div.alt-event.right::after { top: 20%; left: auto; right: 108.1%; }
-	.group-fe,.group-be {
+	.group-fe,.group-be{
 		padding: 24px;
 		gap:64px;
 		display:flex;
