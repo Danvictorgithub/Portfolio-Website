@@ -18,7 +18,7 @@
 		weExp = weExp.WorkExp;
 		let res4 = await fetch(API_URL+"persProj");
 		persProj = await res4.json();
-		persProj = persProj.PersonalProjects;
+		persProj = persProj.PersonalProjects.reverse();
 	});
 </script>
 <article class="container wrapper">
@@ -278,6 +278,9 @@
 		gap: 24px;
 	}
 	.card {
+		display:flex;
+		flex-direction:column;
+		justify-content:space-between;
 /*		max-width: 350px;*/
 		border-radius:12px;
 		background-color:#202020;
