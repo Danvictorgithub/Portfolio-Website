@@ -1,6 +1,6 @@
 <script>
 	import {onMount} from 'svelte';
-	let API_URL = import.meta.env.VITE_API_URL;
+	let API_URL = "https://deviate-dv8-personal-website-api.onrender.com/api/";
 	console.log(API_URL);	
 	let feTech = [];
 	let beTech = [];
@@ -16,7 +16,6 @@
 		let res3 = await fetch(API_URL+"workExp");
 		weExp = await res3.json();
 		weExp = weExp.WorkExp;
-		console.log(feTech,beTech,weExp);
 	});
 </script>
 <article class="container wrapper">
