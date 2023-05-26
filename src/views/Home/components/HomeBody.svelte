@@ -5,6 +5,7 @@
 	let feTech = [];
 	let beTech = [];
 	let weExp = [];
+	let persProj = [];
 	onMount(async ()=> {
 		let res = await fetch(API_URL+'feTech');
 		feTech = await res.json();
@@ -12,10 +13,12 @@
 		let res2 = await fetch(API_URL+"beTech");
 		beTech = await res2.json();
 		beTech = beTech.BeTech;
-
 		let res3 = await fetch(API_URL+"workExp");
 		weExp = await res3.json();
 		weExp = weExp.WorkExp;
+		let res4 = await fetch(API_URL+"persProj");
+		persProj = await res4.json();
+		persProj = persProj.PersonalProjects;
 	});
 </script>
 <article class="container wrapper">
@@ -86,42 +89,26 @@
 	<section>
 		<header class="projects"><h3>Personal Projects</h3></header>
 		<section class="projects-container">
-			<div class="card">
-				<img src="./sampleBlogImage.png" alt="sampleImage">
-				<div class="tags">
-					<p class="tag">Tags</p>
-					<p class="tag">Tags</p>
-					<p class="tag">Tags</p>
-					<p class="tag">Tags</p>
-					<p class="tag">Tags</p>
-					<p class="tag">Tags</p>
-					<p class="tag">Tags</p>
-					<p class="tag">Tags</p>
-					<p class="tag">Tags</p>
-					<p class="tag">Tags</p>
+			{#if persProj.length <= 0}
+				<p class="textCenter">Loading Personal Projects</p>
+			{/if}
+			{#each persProj as proj}
+				<div class="card">
+					<a href={proj.projectLink} target="_blank" rel="noreferrer">
+						<img src={proj.imgLocation} alt={`${proj.projectName} image`}/>
+					</a>
+					<h2 class="project-title">{proj.projectName}</h2>
+					<div class="tags">
+						{#each proj.tags as tag}
+							<p class="tag">{tag}</p>
+						{/each}
+					</div>
+					<p class="project-desc">{proj.description}</p>
+					<a href={proj.githubLink} target="_blank" rel="noreferrer">
+						<button class="project-github"></button>
+					</a>
 				</div>
-				<p class="project-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis minima natus, facilis, sed eius expedita velit maiores incidunt reiciendis sit non nam laudantium maxime hic odio! Eaque ad laborum quae!</p>
-			</div>
-			<div class="card">
-				<img src="./sampleBlogImage.png" alt="sampleImage">
-				<p class="project-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis minima natus, facilis, sed eius expedita velit maiores incidunt reiciendis sit non nam laudantium maxime hic odio! Eaque ad laborum quae!</p>
-			</div>
-			<div class="card">
-				<img src="./sampleBlogImage.png" alt="sampleImage">
-				<p class="project-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis minima natus, facilis, sed eius expedita velit maiores incidunt reiciendis sit non nam laudantium maxime hic odio! Eaque ad laborum quae!</p>
-			</div>
-			<div class="card">
-				<img src="./sampleBlogImage.png" alt="sampleImage">
-				<p class="project-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis minima natus, facilis, sed eius expedita velit maiores incidunt reiciendis sit non nam laudantium maxime hic odio! Eaque ad laborum quae!</p>
-			</div>
-			<div class="card">
-				<img src="./sampleBlogImage.png" alt="sampleImage">
-				<p class="project-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis minima natus, facilis, sed eius expedita velit maiores incidunt reiciendis sit non nam laudantium maxime hic odio! Eaque ad laborum quae!</p>
-			</div>
-			<div class="card">
-				<img src="./sampleBlogImage.png" alt="sampleImage">
-				<p class="project-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis minima natus, facilis, sed eius expedita velit maiores incidunt reiciendis sit non nam laudantium maxime hic odio! Eaque ad laborum quae!</p>
-			</div>
+			{/each}
 		</section>
 	</section>
 </article>
@@ -286,15 +273,39 @@
 	.projects-container {
 		padding: 24px;
 		display:grid;
-		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+/*		justify-content:center;*/
 		gap: 24px;
+	}
+	.card {
+/*		max-width: 350px;*/
+		border-radius:12px;
+		background-color:#202020;
+		padding:12px;
+	}
+	.project-desc, .project-title {
+		text-align:center;
+		margin-bottom:12px;
 	}
 	.card img {
 		position:relative;
 		object-fit:cover;
-		width: 100%;
+		width:100%;
 		height: 200px;
-		margin-bottom: 24px;
+/*		margin-bottom: 24px;*/
+	}
+	.project-github {
+		background-color:white;
+		background-image: url("github-logo.png");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size:125px;
+		border:1px solid transparent;
+		border-radius:2rem;
+		margin:0 auto;
+		width:100%;
+		height:50px;
+		cursor: pointer;
 	}
 	@media (max-width:600px) {
 		.description {
@@ -310,6 +321,7 @@
 		padding:0 10px;
 		gap: 2px 4px;
 		margin-bottom:4px;
+		justify-content:center;
 	}
 	.tag {
 		font-weight: bold;

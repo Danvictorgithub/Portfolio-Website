@@ -14,8 +14,6 @@
     "vite": "^4.1.0"
   },
   "dependencies": {
-    "dotenv": "^16.0.3",
-    "dotenv-vault-core": "^0.7.0",
     "svelte-spa-router": "^3.3.0"
   }
 }
