@@ -35,6 +35,9 @@
 	<section class="experience">
 		<header class="experience-h"><h3>Working Experience</h3></header>
 		<div class="timeline-container">
+			{#if weExp.length <= 0}
+					<p class="textCenter">Loading Experience</p>
+				{/if}
 			<div class="alt-vtl">
 				{#each weExp as exp, i}
 					{#if i%2 == 0}
@@ -55,6 +58,9 @@
 	<section>
 		<header class="fe-tech"><h3>Front-End Technologies</h3></header>
 		<div class="group-fe">
+		{#if feTech.length <= 0}
+			<p class="textCenter">Loading Front-End Technologies</p>
+		{/if}
 		{#each feTech as tech}
 			<div class="fe-desc">
 				<img src={tech.imgLocation} class="fe-logo" alt={`${tech.name} logo`}/>
@@ -66,6 +72,9 @@
 	<section>
 		<header class="be-tech"><h3>Back-End Technologies</h3></header>
 		<div class="group-be">
+			{#if beTech.length <= 0}
+			<p class="textCenter">Loading Back-End Technologies</p>
+			{/if}
 			{#each beTech as tech}
 				<div class="be-desc">
 					<img src={tech.imgLocation} class="be-logo" alt={`${tech.name} logo`}/>
@@ -279,5 +288,8 @@
 		.description {
 			font-size:1.8rem;
 		}
+	}
+	.textCenter {
+		text-align:center;
 	}
 </style>
